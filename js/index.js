@@ -15,13 +15,18 @@ searchForm.append(seachOption);
 
 
 searchForm.addEventListener("submit", (evt) => {
+<<<<<<< HEAD
   evt.preventDefault();  
+=======
+  evt.preventDefault();
+>>>>>>> 539bbb41b8fc87d1e1200c217830c098ae24869d
   let searchingOption = seachOption.value
   let userSearchInput = evt.target.search.value;
   fetch(`https://api.github.com/search/users?q=octocat`)
     .then(res => res.json())
     .then(gitHubUserObjects => {
     if (searchingOption === "Search-by-GitHub-Name"){
+<<<<<<< HEAD
         let found = gitHubUserObjects.items.find(userInfo => userInfo.login.toLowerCase()==               userSearchInput.toLowerCase())
         userInfoList.innerHTML = "";
         listOfRepos.innerHTML = "";
@@ -38,6 +43,21 @@ searchForm.addEventListener("submit", (evt) => {
       return alert("not implemented!")
     }
       
+=======
+        let found = gitHubUserObjects.items.find(userInfo => userInfo.login.toLowerCase()==                           userSearchInput.toLowerCase())
+      }
+    else{
+      return alert("not implemented!")
+    }
+      userInfoList.innerHTML = "";
+      listOfRepos.innerHTML = "";
+      if (typeof found !== "undefined"){
+          return createUserLi(found)
+        }
+      else {
+        return UserNotFound()
+      }
+>>>>>>> 539bbb41b8fc87d1e1200c217830c098ae24869d
     })
   evt.target.reset();
 });
